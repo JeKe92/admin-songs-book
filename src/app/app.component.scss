@@ -1,0 +1,22 @@
+:host {
+    display: grid;
+    grid-template-areas: 'header header header header'
+                         'aside main main main'
+                         'aside footer footer footer';
+}
+
+.header {
+    grid-area: header;
+}
+
+.container {
+    grid-area: main;
+}
+
+.sidebar {
+    grid-area: aside;
+}
+
+.footer {
+    grid-area: footer;
+}
