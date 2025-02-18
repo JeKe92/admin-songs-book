@@ -6,6 +6,10 @@ export const routes: Routes = [
         redirectTo: 'calendar',
         pathMatch: 'full'
     },
+    {
+      path: 'songs-book',
+      loadComponent: () => import('./features/songs-book/songs-book.component').then((m) => m.SongsBookComponent),
+    },
     // {
     //     path: '',
     //     component: DefaultLayoutComponent,
@@ -59,7 +63,7 @@ export const routes: Routes = [
         path: 'calendar',
         loadComponent: () => import('./features/calendar/calendar.component').then(m => m.CalendarComponent),
         data: {
-          title: 'Page 404'
+          title: 'Calendar'
         }
       },
 ];

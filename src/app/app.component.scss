@@ -1,8 +1,8 @@
 :host {
     display: grid;
-    grid-template-areas: 'header header header header'
-                         'aside main main main'
-                         'aside footer footer footer';
+    grid-template-areas: 'header header header'
+                         'main main main'
+                         'footer footer footer';
 }
 
 .header {
@@ -14,9 +14,22 @@
 }
 
 .sidebar {
+    display: none;
     grid-area: aside;
 }
 
 .footer {
     grid-area: footer;
+}
+
+@media(min-width: 720px){
+    .sidebar {
+        display: block;
+    }
+}
+
+@media(max-width: 720px){
+    .sidebar {
+        display: none;
+    }
 }

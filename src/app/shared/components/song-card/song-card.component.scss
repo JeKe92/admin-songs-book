@@ -1,0 +1,18 @@
+.card {
+    max-width: 300px;
+    padding: 10px;
+
+    .video-card {
+        margin: auto;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .song-card-buttons {
+        display: flex;
+        justify-content: start;
+        column-gap: 10px;
+    }
+}

@@ -1,0 +1,45 @@
+<div *ngIf="songCard" class="card">
+    <div *ngIf="songCard.videoUrl" class="video-card">
+        <iframe width="280" height="215"
+            [src]="songCard.videoUrl | safeUrl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{songCard.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            {{songCard.artist}}
+        </h6>
+        <ul
+            class="card-text">
+            <li *ngIf="songCard.key" class="card-text">
+                <i class="fas fa-guitar"></i> {{songCard.key}}
+            </li>
+            <li *ngIf="songCard.tempo" class="card-text">
+                <i class="fas fa-music"></i> {{songCard.tempo}} bpm
+            </li>
+            <li *ngIf="songCard.compass" class="card-text">
+                <i class="fas fa-drum"></i> {{songCard.compass}}
+            </li>
+        </ul>
+        <hr>
+        <div class="song-card-buttons">
+            <a *ngIf="songCard.lyricsUrl"
+                [href]="songCard.lyricsUrl | safeUrl"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm">
+                    Letras
+            </a>
+            <a *ngIf="songCard.chordsUrl"
+                [href]="songCard.chordsUrl | safeUrl"
+                target="_blank"
+                class="btn btn-outline-secondary btn-sm">
+                    Acordes
+            </a>
+        </div>
+    </div>
+</div>
