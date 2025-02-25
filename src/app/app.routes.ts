@@ -3,12 +3,16 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'calendar',
+        redirectTo: 'songs-book',
         pathMatch: 'full'
     },
     {
       path: 'songs-book',
       loadComponent: () => import('./features/songs-book/songs-book.component').then((m) => m.SongsBookComponent),
+    },
+    {
+      path: 'add-song',
+      loadComponent: () => import('./features/add-song/add-song.component').then((m) => m.AddSongComponent),
     },
     // {
     //     path: '',

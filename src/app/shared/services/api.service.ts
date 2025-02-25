@@ -25,6 +25,15 @@ export class ApiService {
   }
 
   getSongById(id: number): Observable<any> {
-    return this.http.get(`${this.BASE_URL}/songs/${id}`);
+    return this.http.get(`${this.BASE_URL}/song/${id}`);
+  }
+
+  addSong(song: any): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/song`, song);
+  }
+
+  // Cantantes
+  getSingers(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/singers`);
   }
 }
