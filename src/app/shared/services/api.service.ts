@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private readonly BASE_URL = 'http://localhost:3000';
+  private readonly BASE_URL = 'https://admin-songs-book-api.onrender.com';
 
   constructor(private http: HttpClient) {}
 
