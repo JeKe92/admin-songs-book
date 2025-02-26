@@ -3,22 +3,24 @@ import { SongCardComponent } from "../../shared/components/song-card/song-card.c
 import { ISongCard } from '../../shared/components/song-card/song-card.interface';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../shared/services/api.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-songs-book',
-  standalone: true,
-  imports: [
-    SongCardComponent,
-    CommonModule,
-  ],
-  templateUrl: './songs-book.component.html',
-  styleUrl: './songs-book.component.scss'
+    selector: 'app-songs-book',
+    imports: [
+        SongCardComponent,
+        CommonModule,
+        FormsModule,
+    ],
+    templateUrl: './songs-book.component.html',
+    styleUrl: './songs-book.component.scss'
 })
 export class SongsBookComponent implements OnInit {
   songs: ISongCard[] = [];
+  songsData: ISongCard[] = [];
+  termSearch: string = '';
 
   constructor(private apiService: ApiService) {
-
   }
 
   ngOnInit() {
@@ -27,8 +29,27 @@ export class SongsBookComponent implements OnInit {
 
   getSongs() {
     this.apiService.getSongs().subscribe((data: any) => {
-      next: {this.songs = data};
+      next: {
+        this.songsData = data;
+        this.songs = data;
+      };
       error: (e: any) => console.log(e);
     });
+  }
+
+  onKeyUp() {
+    if (!this.termSearch) {
+      this.songs = structuredClone(this.songsData);
+
+      return;
+    }
+
+    this.songs = this.songsData.filter(song => 
+      song.artist.indexOf(this.termSearch) !== -1
+      || song.title.indexOf(this.termSearch) !== -1
+      || song.key?.indexOf(this.termSearch) !== -1
+      || song.compass?.indexOf(this.termSearch) !== -1
+      || song.mainVoice?.indexOf(this.termSearch) !== -1
+    )
   }
 }

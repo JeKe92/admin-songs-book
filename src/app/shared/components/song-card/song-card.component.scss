@@ -2,6 +2,12 @@
     max-width: 300px;
     padding: 10px;
 
+    .card-title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
     .video-card {
         margin: auto;
     }

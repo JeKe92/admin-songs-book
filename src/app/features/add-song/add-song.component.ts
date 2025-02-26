@@ -5,11 +5,10 @@ import { ApiService } from '../../shared/services/api.service';
 import { UtilsService } from '../../shared/services/utils.service';
 
 @Component({
-  selector: 'app-add-song',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './add-song.component.html',
-  styleUrls: ['./add-song.component.scss'],
+    selector: 'app-add-song',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './add-song.component.html',
+    styleUrls: ['./add-song.component.scss']
 })
 export class AddSongComponent {
   songForm!: FormGroup;
