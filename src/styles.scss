@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+// Definimos un mixin para media queries
+@mixin media($size) {
+    @if $size == mobile {
+      @media (max-width: 600px) { @content; }
+    } @else if $size == tablet {
+      @media (max-width: 1024px) { @content; }
+    } @else if $size == desktop {
+      @media (min-width: 1025px) { @content; }
+    }
+  }
