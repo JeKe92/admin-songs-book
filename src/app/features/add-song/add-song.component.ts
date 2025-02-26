@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../shared/services/api.service';
+import { UtilsService } from '../../shared/services/utils.service';
 
 @Component({
   selector: 'app-add-song',
@@ -11,12 +12,25 @@ import { ApiService } from '../../shared/services/api.service';
   styleUrls: ['./add-song.component.scss'],
 })
 export class AddSongComponent {
-  songForm: FormGroup;
+  songForm!: FormGroup;
   keys: string[];
   compasses: string[];
   singers: any[] = [];
+  buttonsEnabled: boolean = false;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private utilsService: UtilsService,
+  ) {
+    this.initForm();
+    this.keys = this.utilsService.getKeys();
+    this.compasses = this.utilsService.getCompasses();
+    this.getSingers();
+    this.buttonsEnabled = true;
+  }
+
+  private initForm() {
     this.songForm = this.fb.group({
       title: ['', Validators.required],
       artist: ['', Validators.required],
@@ -28,21 +42,6 @@ export class AddSongComponent {
       videoUrl: ['', Validators.required],
       compass: ['', Validators.required],
     });
-
-    this.keys = this.getKeys();
-    this.compasses = this.getCompasses();
-    this.getSingers();
-  }
-
-  private getKeys() {
-    return [
-      'C','Cm','C#','C#m','D','Dm','D#','D#m','E','Em','F','Fm',
-      'F#','F#m','G','Gm','G#','G#m','A','Am','A#','A#m','B','Bm',
-    ];
-  }
-
-  private getCompasses() {
-    return ['2/4','3/4','4/4','6/8',]
   }
 
   private getSingers() {
@@ -52,21 +51,27 @@ export class AddSongComponent {
     });
   }
 
-  onSubmit(evt: Event) {
+  protected onSubmit() {
     if (this.songForm.valid) {
+      this.buttonsEnabled = false;
+      this.songForm.patchValue({
+        videoUrl: this.utilsService.getYoutubeEmbedUrl(this.songForm.controls['videoUrl'].value),
+      });
       this.apiService.addSong(this.songForm.value).subscribe({
         next: (response) => {
-          console.log('Canción agregada:', response);
           alert('Canción agregada exitosamente');
-          this.songForm.reset(); // Limpia el formulario después de agregar
+          this.songForm.reset();
+          this.buttonsEnabled = true;
         },
         error: (err) => {
-          console.error('Error al agregar la canción:', err);
-          alert('Error al agregar la canción');
+          alert('Error al agregar la canción' + err);
+          this.buttonsEnabled = true;
         },
       });
     } else {
       alert('Por favor, completa todos los campos obligatorios.');
     }
   }
+
 }
+

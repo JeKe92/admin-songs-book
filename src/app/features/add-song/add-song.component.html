@@ -58,10 +58,10 @@
     <div class="form-group mt-3">
         <div class="d-flex flex-row-reverse">
             <div class="p-2">
-                <button type="button" (click)="onSubmit($event)" class="btn btn-primary">Agregar Canción</button>
+                <button #addSongBtn type="button" (click)="onSubmit()" class="btn btn-primary" [disabled]="!buttonsEnabled">Agregar Canción</button>
             </div>
             <div class="p-2">
-                <button type="button" class="btn btn-secondary">Cancelar</button>
+                <button #cancelBtn type="button" class="btn btn-secondary" [disabled]="!buttonsEnabled">Cancelar</button>
             </div>
         </div>
     </div>

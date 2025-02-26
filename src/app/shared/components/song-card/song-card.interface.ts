@@ -7,4 +7,5 @@ export interface ISongCard {
     videoUrl?: string;
     lyricsUrl?: string;
     chordsUrl?: string;
+    mainVoice?: string;
 };
