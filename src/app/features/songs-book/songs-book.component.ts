@@ -44,12 +44,14 @@ export class SongsBookComponent implements OnInit {
       return;
     }
 
+    const term = this.termSearch.toLowerCase();
+
     this.songs = this.songsData.filter(song => 
-      song.artist.indexOf(this.termSearch) !== -1
-      || song.title.indexOf(this.termSearch) !== -1
-      || song.key?.indexOf(this.termSearch) !== -1
-      || song.compass?.indexOf(this.termSearch) !== -1
-      || song.mainVoice?.indexOf(this.termSearch) !== -1
+      song.artist.toLowerCase().indexOf(term) !== -1
+      || song.title.toLowerCase().indexOf(term) !== -1
+      || song.key?.toLowerCase()?.indexOf(term) !== -1
+      || song.compass?.toLowerCase()?.indexOf(term) !== -1
+      || song.mainVoice?.toLowerCase()?.indexOf(term) !== -1
     )
   }
 }
