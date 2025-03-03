@@ -1,12 +1,26 @@
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 m-auto">
-    <input
-        type="text"
-        class="form-control"
-        id="search"
-        [(ngModel)]="termSearch"
-        placeholder="Ingresa tu búsqueda aquí"
-        (keyup)="onKeyUp()"
-    />
+<header class="d-flex justify-content-between mb-3">
+    <h3>Repertorio
+    </h3>
+    <div class="btn-group" role="group" aria-label="Change type of view">
+        <button type="button" class="btn btn-dark" title="Ver listado" routerLink="/songs-book">
+            <span><i class="fa-solid fa-list-ul"></i></span>
+        </button>
+        <button type="button" class="btn btn-dark active" title="Ver detallado" routerLink="/songs-book-grid">
+            <span><i class="bi bi-grid-fill"></i></span>
+        </button>
+    </div>
+</header>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 m-auto">
+        <input
+            type="text"
+            class="form-control"
+            id="search"
+            [(ngModel)]="termSearch"
+            placeholder="Buscar..."
+            (keyup)="onKeyUp()"
+        />
+    </div>
 </div>
 <div class="songs-book-container mt-5">
     <app-song-card *ngFor="let song of songs" [songCard]="song"></app-song-card>

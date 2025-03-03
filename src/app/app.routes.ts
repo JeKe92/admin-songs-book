@@ -7,8 +7,12 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-      path: 'songs-book',
+      path: 'songs-book-grid',
       loadComponent: () => import('./features/songs-book/songs-book.component').then((m) => m.SongsBookComponent),
+    },
+    {
+      path: 'songs-book',
+      loadComponent: () => import('./features/songs-book-grid/songs-book-grid.component').then((m) => m.SongsBookGridComponent),
     },
     {
       path: 'add-song',

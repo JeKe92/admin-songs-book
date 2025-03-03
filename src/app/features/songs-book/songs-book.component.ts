@@ -4,6 +4,7 @@ import { ISongCard } from '../../shared/components/song-card/song-card.interface
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../shared/services/api.service';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-songs-book',
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
         SongCardComponent,
         CommonModule,
         FormsModule,
+        RouterModule,
     ],
     templateUrl: './songs-book.component.html',
     styleUrl: './songs-book.component.scss'
