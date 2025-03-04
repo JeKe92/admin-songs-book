@@ -1,0 +1,33 @@
+@import '../../../styles.scss';
+
+:host {
+    // Buttons
+    --fc-button-active-bg-color: var(--sb-dark-color);
+    --fc-button-active-border-color: var(--sb-dark-color);
+    --fc-button-hover-bg-color: var(--sb-dark-color);
+    --fc-button-hover-border-color: var(--sb-dark-color);
+    --fc-button-bg-color: var(--sb-secondary-color);
+    --fc-button-border-color: var(--sb-secondary-color);
+
+    //Today
+    --fc-today-bg-color: rgb(from var(--sb-success-color) r g b / 15%);
+}
+
+::ng-deep .fc {
+    a {
+        text-decoration: none;
+        color: var(--sb-secondary-color);
+    }
+}
+::ng-deep .fc .fc-toolbar{
+    flex-direction: row;
+    gap: 20px;
+}
+
+@include media(tablet) {
+
+    ::ng-deep .fc .fc-toolbar{
+        flex-direction: column;
+        gap: 20px;
+    }
+}

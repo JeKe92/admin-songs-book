@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { SongCardComponent } from "../../shared/components/song-card/song-card.component";
-import { ISongCard } from '../../shared/components/song-card/song-card.interface';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../shared/services/api.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+// Components
+import { SongsBookHeaderComponent } from "../../shared/components/songs-book-header/songs-book-header.component";
+import { SongCardComponent } from "../../shared/components/song-card/song-card.component";
+// Interface & service
+import { ISongCard } from '../../shared/components/song-card/song-card.interface';
+import { ApiService } from '../../shared/services/api.service';
 
 @Component({
     selector: 'app-songs-book',
     imports: [
-        SongCardComponent,
-        CommonModule,
-        FormsModule,
-        RouterModule,
-    ],
+    SongCardComponent,
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    SongsBookHeaderComponent,
+],
     templateUrl: './songs-book.component.html',
     styleUrl: './songs-book.component.scss'
 })

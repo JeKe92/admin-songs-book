@@ -34,13 +34,13 @@
             <a *ngIf="songCard.lyricsUrl"
                 [href]="songCard.lyricsUrl | safeUrl"
                 target="_blank"
-                class="btn btn-outline-primary btn-sm">
+                class="btn btn-dark btn-sm">
                     Letras
             </a>
             <a *ngIf="songCard.chordsUrl"
                 [href]="songCard.chordsUrl | safeUrl"
                 target="_blank"
-                class="btn btn-outline-secondary btn-sm">
+                class="btn btn-secondary btn-sm text-white">
                     Acordes
             </a>
         </div>

@@ -1,16 +1,5 @@
 
-<header class="d-flex justify-content-between mb-3">
-    <h3>Repertorio
-    </h3>
-    <div class="btn-group" role="group" aria-label="Change type of view">
-        <button type="button" class="btn btn-dark active" title="Ver listado" routerLink="/songs-book">
-            <span><i class="fa-solid fa-list-ul"></i></span>
-        </button>
-        <button type="button" class="btn btn-dark" title="Ver detalle" routerLink="/songs-book-grid">
-            <span><i class="bi bi-grid-fill"></i></span>
-        </button>
-    </div>
-</header>
+<app-songs-book-header></app-songs-book-header>
 <ag-grid-angular
     style="height: 70vh"
     [rowData]="rows"

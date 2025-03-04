@@ -4,12 +4,13 @@ import { RouterModule } from '@angular/router';
 
 import { AgGridAngular } from "ag-grid-angular";
 import type { ColDef } from "ag-grid-community";
+import { AllCommunityModule, ModuleRegistry, themeQuartz } from "ag-grid-community";
+
+import { SongsBookHeaderComponent } from "../../shared/components/songs-book-header/songs-book-header.component";
 
 import { ApiService } from '../../shared/services/api.service';
 import { ISongBookGridRow } from './songs-book-grid.interface';
 import { ISongCard } from '../../shared/components/song-card/song-card.interface';
-
-import { AllCommunityModule, ModuleRegistry, themeQuartz } from "ag-grid-community";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -19,7 +20,8 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     AgGridAngular,
     CommonModule,
     RouterModule,
-  ],
+    SongsBookHeaderComponent,
+],
   templateUrl: './songs-book-grid.component.html',
   styleUrl: './songs-book-grid.component.scss'
 })

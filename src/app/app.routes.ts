@@ -18,6 +18,10 @@ export const routes: Routes = [
       path: 'add-song',
       loadComponent: () => import('./features/add-song/add-song.component').then((m) => m.AddSongComponent),
     },
+    {
+      path: 'schedule',
+      loadComponent: () => import('./features/schedule/schedule.component').then((m) => m.ScheduleComponent),
+    },
     // {
     //     path: '',
     //     component: DefaultLayoutComponent,

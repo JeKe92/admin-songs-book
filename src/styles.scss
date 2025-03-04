@@ -1,5 +1,26 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
 /* You can add global styles to this file, and also import other style files */
-// Definimos un mixin para media queries
+$theme-colors: (
+  "primary": #073b4c,
+  "secondary": #118ab2,
+  "success": #06d6a0,
+  "warning": #ffd166,
+  "danger": #ef476f,
+  "dark": #0a1128,
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+:host {
+  --sb-primary-color: #073b4c;
+  --sb-secondary-color: #118ab2;
+  --sb-success-color: #06d6a0;
+  --sb-warning-color: #ffd166;
+  --sb-danger-color: #ef476f;
+  --sb-dark-color: #0a1128;
+}
+
 @mixin media($size) {
     @if $size == mobile {
       @media (max-width: 600px) { @content; }
