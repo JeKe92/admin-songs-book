@@ -1,0 +1,38 @@
+<div class="schedule-item">
+    <div class="schedule-item-header">
+        <h3 class="heading">Canción #{{numberSong}}</h3>
+        <div class="header-buttons-group">
+            <button type="button" (click)="deleteItem(numberSong)" title="Eliminar esta canción" class="btn btn-danger btn-sm btn-lg mt-3 mb-3 text-white"><i class="bi bi-trash"></i></button>
+        </div>
+
+    </div>
+    <div class="schedule-item-body">
+        <form [formGroup]="scheduleItem">
+            <div class="row">
+                <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label for="song">Canción: *</label>
+                    <!-- <ng-select [items]="songs" 
+                        bindLabel="name" 
+                        bindValue="id" 
+                        >
+                    </ng-select> -->
+                    <select class="form-control" id="song" formControlName="song">
+                      <option *ngFor="let song of songs" [value]="song">{{song}}</option>
+                    </select>
+                </div>
+                <div class="form-group col">
+                    <label for="mainVoice">Voz Principal: *</label>
+                    <select class="form-control" id="mainVoice" formControlName="mainVoice">
+                      <option *ngFor="let mainVoice of singers" [value]="mainVoice">{{mainVoice}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="description">Descripción:</label>
+                    <textarea type="text" class="form-control col-6" id="description" formControlName="description"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

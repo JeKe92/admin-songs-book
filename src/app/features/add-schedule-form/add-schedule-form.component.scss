@@ -1,0 +1,29 @@
+.header-date {
+    margin-bottom: 30px;
+}
+
+.schedule-group {
+    margin-bottom: 80px;
+}
+
+.schedule-group-footer {
+    height: 20px;
+
+    hr {
+        margin: 40px 0 10px;
+    }
+    .hr-button {
+        position: relative;
+        top: -32px;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.sticky-button {
+    position: fixed;
+    bottom: 0;
+    padding: 0 15px;
+    width: 100%;
+}

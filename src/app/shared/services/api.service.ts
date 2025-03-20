@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ISong } from '../interfaces/song.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -28,12 +29,21 @@ export class ApiService {
     return this.http.get(`${this.BASE_URL}/song/${id}`);
   }
 
-  addSong(song: any): Observable<any> {
+  addSong(song: ISong): Observable<any> {
     return this.http.post(`${this.BASE_URL}/song`, song);
   }
 
   // Cantantes
   getSingers(): Observable<any> {
     return this.http.get(`${this.BASE_URL}/singers`);
+  }
+
+  // Programación
+  addSchedule(schedule: any): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/schedule`, schedule);
+  }
+
+  getScheduleByDate(date: string): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/schedule-by-date/${date}`);
   }
 }

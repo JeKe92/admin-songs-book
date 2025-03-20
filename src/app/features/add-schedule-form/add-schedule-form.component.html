@@ -1,0 +1,28 @@
+<h1 class="display-4">Programación de alabanza</h1>
+<h2 class="display-6 header-date">{{scheduleDate | date: 'longDate'}}</h2>
+
+<div class="container schedule-group">
+    <app-schedule-item *ngFor="let schedule of schedules; index as i"
+        [scheduleData]="schedule"
+        [scheduleItem]="scheduleItem"
+        (deleteItemEvent)="deleteSong($event)"
+        [songs]="songs"
+        [singers]="singers"
+        [numberSong]="i+1">
+    </app-schedule-item>
+    <div class="schedule-group-footer mt-5">
+        <p *ngIf="!schedules.length" class="text-center mt-5 mb-5">No se encontraron registros.
+        Para añadir, pulse el botón.</p>
+        <hr>
+        <div class="hr-button">
+            <button type="button" (click)="addNewSong()" title="Añadir canción" class="btn btn-success text-white"><i class="bi bi-file-earmark-plus"></i></button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="schedules.length" class="container row sticky-button">
+    <button type="button" title="Guardar programación" class="btn btn-dark btn-lg btn-lg mt-3 mb-3 text-white save-btn"><i class="bi bi-floppy"></i> Guardar programación</button>
+</div>
+
+
+

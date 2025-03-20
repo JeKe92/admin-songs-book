@@ -20,7 +20,16 @@ export const routes: Routes = [
     },
     {
       path: 'schedule',
-      loadComponent: () => import('./features/schedule/schedule.component').then((m) => m.ScheduleComponent),
+      children: [
+        {
+          path: '',
+          loadComponent: () => import('./features/schedule/schedule.component').then((m) => m.ScheduleComponent),
+        },
+        {
+          path: 'add',
+          loadComponent: () => import('./features/add-schedule-form/add-schedule-form.component').then((m) => m.AddScheduleFormComponent)
+        }
+      ]
     },
     // {
     //     path: '',

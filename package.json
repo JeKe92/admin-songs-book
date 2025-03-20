@@ -26,6 +26,7 @@
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/interaction": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
+    "@ng-select/ng-select": "^14.2.4",
     "ag-grid-angular": "^33.1.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
